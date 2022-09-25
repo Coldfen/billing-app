@@ -1,9 +1,11 @@
 
-    <form [formGroup]="authForm" (ngSubmit)="submit()">
+    <form [formGroup]="authForm" (ngSubmit)="submit()" >
+     <div class="auth__form">
+      <h2>Авторизация</h2>
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Введите email</mat-label>
-                <input matInput placeholder="Email" formControlName="email">
+                <input autocomplete="username" matInput placeholder="Email" formControlName="email">
                 <mat-error *ngIf="email?.invalid && email?.touched">
                   Некорректный email
                 </mat-error>
@@ -12,10 +14,16 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Введите пароль</mat-label>
-                <input matInput placeholder="Пароль" formControlName="password">
-                <mat-error *ngIf="password?.errors?.['minlength']">
-                  Пароль должен быть не меньше {{ password?.errors?.['minlength']?.requiredLength}}
-                </mat-error>
-              </mat-form-field>
-              <button mat-raised-button color="primary" type="submit">Primary</button>
+                <input type="password" autocomplete="current-password" matInput placeholder="Пароль" formControlName="password">
+              <mat-error *ngIf="password?.touched && password?.invalid">
+                <p *ngIf="password?.errors?.['required']">Введите пароль</p>
+                <p *ngIf="password?.errors?.['minlength']">Пароль долже быть не меньше {{ password?.errors?.['minlength']?.requiredLength }} символов</p>
+              </mat-error>
+            </mat-form-field>
         </div>
+          <button mat-raised-button color="primary" type="submit" [disabled]="authForm.invalid || submitted">Войти</button>
+<!--          <mat-error >-->
+<!--            <small *ngIf="">Неверное имя пользователя или пароль</small>-->
+<!--          </mat-error>-->
+      </div>
+    </form>

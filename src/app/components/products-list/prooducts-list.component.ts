@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IProduct} from "../../models/product";
-import {products as data} from "../../data/products";
+import {products as data} from "../../data/products"
 
 type Card = {
   id: string,

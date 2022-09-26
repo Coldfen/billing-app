@@ -1,20 +1,20 @@
 <nav class="navbar">
-    <ul class="navbar__menu-left">
-        <li>
-            <a routerLinkActive="active" [routerLink]="['/home', 'history']">История приобретений</a>
-        </li>
-        <li>    
-            <a routerLinkActive="active" [routerLink]="['/home', 'price']">Список тарифов</a>
-        </li>    
-    </ul>
-    <div class="navbar__menu-right">
-        <div class="menu-righ__account"> 
-            <mat-icon>account_circle</mat-icon>
-            <p>{{ user.email }}</p>
-        </div> 
-        <mat-icon>logout</mat-icon>
+  <ul class="navbar__menu-left">
+    <li>
+      <a routerLinkActive="active" [routerLink]="['/home', 'history']">История приобретений</a>
+    </li>
+    <li>
+      <a routerLinkActive="active" [routerLink]="['/home', 'price']">Список тарифов</a>
+    </li>
+  </ul>
+  <div class="navbar__menu-right">
+    <div class="menu-righ__account">
+      <mat-icon>account_circle</mat-icon>
+      <p>{{ user.email }}</p>
     </div>
-    
+    <mat-icon>logout</mat-icon>
+  </div>
+
 </nav>
 <app-active-tariff></app-active-tariff>
 <router-outlet></router-outlet>

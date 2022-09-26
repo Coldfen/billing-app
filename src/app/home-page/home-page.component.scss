@@ -1,3 +1,7 @@
+mat-icon {
+    color: #fff;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -25,6 +29,11 @@
   }
 }
 
+.navbar__menu-right > mat-icon {
+    margin-top: 2px;
+    cursor: pointer;
+}
+
 .navbar__menu-right {
   display: flex;
   margin: 0;
@@ -34,7 +43,6 @@
   }
 
   .menu-righ__account > mat-icon {
-    color: #fff;
     height: 28px;
     width: 28px;
     font-size: 28px;
@@ -42,6 +50,8 @@
 
   .menu-righ__account > p {
     color: #fff;
+    margin: 4px 0 6px;
+    padding: 0 8px 0 8px;
   }
 }
 

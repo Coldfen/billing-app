@@ -24,7 +24,7 @@ import {ProductsListComponent} from "./components/products-list/prooducts-list.c
     PurchaseHistoryComponent,
     AppComponent,
     ProductComponent,
-    ProductsListComponent
+    ProductsListComponent,
   ],
   imports: [
     BrowserModule,

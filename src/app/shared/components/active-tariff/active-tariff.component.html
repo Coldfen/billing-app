@@ -1,36 +1,43 @@
-<section class="main__top">
-    <h2 class="main__title">Мой тариф</h2>
-    <mat-card>
-      <mat-card-subtitle>Текущий тариф</mat-card-subtitle>
-      <div class="current-product_title_wrap">
-        <mat-icon
-          aria-hidden="false"
-          aria-label="update_outline"
-          fontIcon="update_outline"
-        ></mat-icon>
-        <mat-card-title>Безлимитный</mat-card-title>
+<section class="current-product">
+  <h2 class="current-product__title">Мой тариф</h2>
+  <mat-card>
+    <mat-card-subtitle>Текущий тариф</mat-card-subtitle>
+    <mat-card-title>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="update_outline"
+        fontIcon="update_outline"
+      ></mat-icon>
+      Безлимитный
+    </mat-card-title>
+    <mat-card-content class="current-product__content">
+      <p>Статус: <mat-icon
+        [ngStyle]="{color: 'green', verticalAlign: 'bottom'}"
+        aria-hidden="false"
+        aria-label="check_small_outline"
+        fontIcon="check_small_outline"
+      ></mat-icon><span [ngStyle]="{color: 'green'}">Активен</span></p>
+      <p>Лицевой счёт: 5500000014</p>
+      <div>
+        <p class="current-product_item" title="Количество доступных отправок">
+          <mat-icon
+            [ngStyle]="{verticalAlign: 'bottom'}"
+            aria-hidden="false"
+            aria-label="label_outline"
+            fontIcon="label_month_outline"
+          ></mat-icon>
+          Неограничено
+        </p>
+        <p class="current-product_item" title="Дата окончания действия тарифа">
+          <mat-icon
+            [ngStyle]="{verticalAlign: 'bottom'}"
+            aria-hidden="false"
+            aria-label="calendar_month_outline"
+            fontIcon="calendar_month__outline"
+          ></mat-icon>
+          19.09.2024
+        </p>
       </div>
-      <mat-card-content>
-        <p>Статус: </p>
-        <p>Лицевой счёт: </p>
-        <div>
-          <span class="current-product_item" title="Количество доступных отправок">
-            <mat-icon
-              aria-hidden="false"
-              aria-label="label_outline"
-              fontIcon="label_month__outline"
-            ></mat-icon>
-            Неограничено
-          </span>
-          <span class="current-product_item" title="Дата окончания действия тарифа">
-            <mat-icon
-              aria-hidden="false"
-              aria-label="calendar_month_outline"
-              fontIcon="calendar_month__outline"
-            ></mat-icon>
-            19.09.2024
-          </span>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </section>
+    </mat-card-content>
+  </mat-card>
+</section>

@@ -5,7 +5,7 @@
   <p class="product__cost">{{product.price}} &#8381;</p>
   <p class="product__text">Количество отправок: {{product.message_limit ? product.message_limit: 'Неограничено'}}</p>
   <p class="product__text">Срок действия:{{product.period}} месяцев</p>
-  <button class="product__btn" (click)="handleAppruve()">
+  <button class="product__btn" mat-raised-button color="primary" (click)="handleAppruve()">
     <mat-icon
       aria-hidden="false"
       aria-label="add_circle_outline"

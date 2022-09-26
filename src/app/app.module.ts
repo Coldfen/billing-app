@@ -9,11 +9,19 @@ import { MaterialExampleModule } from 'src/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
+import { HomePageComponent } from './home-page/home-page.component';
+import { ActiveTariffComponent } from './shared/components/active-tariff/active-tariff.component';
+import { PriceListComponent } from './price-list/price-list.component';
+import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
+    HomePageComponent,
+    ActiveTariffComponent,
+    PriceListComponent,
+    PurchaseHistoryComponent,
   ],
   imports: [
     BrowserModule,

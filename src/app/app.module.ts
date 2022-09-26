@@ -14,6 +14,7 @@ import { ActiveTariffComponent } from './shared/components/active-tariff/active-
 import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 import { ProductComponent } from './components/product/product.component';
 import {ProductsListComponent} from "./components/products-list/prooducts-list.component";
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ProductsListComponent} from "./components/products-list/prooducts-list.c
     PurchaseHistoryComponent,
     AppComponent,
     ProductComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

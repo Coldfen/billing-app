@@ -1,0 +1,28 @@
+<section class="">
+  <h2 class="products__title">Мой тариф</h2>
+  <mat-card>
+    <mat-card-subtitle>Текущий тариф</mat-card-subtitle>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="shedule_outline"
+      fontIcon="shedule_outline"
+    ></mat-icon>
+    <mat-card-title>Безлимитный</mat-card-title>
+    <mat-card-content>
+      <p>Статус: </p>
+      <p>Лицевой счёт: </p>
+      <div>
+        <span></span>
+        <span></span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section class="">
+  <h2 class="products__title">Список пакетов</h2>
+  <ul class="products__list">
+    <app-product *ngFor="let product of products; let i = index" [product]="product"></app-product>
+  </ul>
+</section>
+

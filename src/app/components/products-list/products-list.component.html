@@ -1,0 +1,44 @@
+<section class="main__top">
+  <h2 class="main__title">Мой тариф</h2>
+  <mat-card>
+    <mat-card-subtitle>Текущий тариф</mat-card-subtitle>
+    <div class="current-product_title_wrap">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="update_outline"
+        fontIcon="update_outline"
+      ></mat-icon>
+      <mat-card-title>Безлимитный</mat-card-title>
+    </div>
+    <mat-card-content>
+      <p>Статус: </p>
+      <p>Лицевой счёт: </p>
+      <div>
+        <span class="current-product_item" title="Количество доступных отправок">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="label_outline"
+            fontIcon="label_month__outline"
+          ></mat-icon>
+          Неограничено
+        </span>
+        <span class="current-product_item" title="Дата окончания действия тарифа">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="calendar_month_outline"
+            fontIcon="calendar_month__outline"
+          ></mat-icon>
+          19.09.2024
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<section class="main__bottom">
+  <h2 class="main__title">Список пакетов</h2>
+  <ul class="products__list">
+    <app-product *ngFor="let product of products; let i = index" [product]="product"></app-product>
+  </ul>
+</section>
+

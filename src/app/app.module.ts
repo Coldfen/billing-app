@@ -13,6 +13,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ActiveTariffComponent } from './shared/components/active-tariff/active-tariff.component';
 import { PriceListComponent } from './price-list/price-list.component';
 import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
+import { ProductComponent } from './components/product/product.component';
+import {ProductsListComponent} from "./components/products-list/prooducts-list.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +24,9 @@ import { PurchaseHistoryComponent } from './purchase-history/purchase-history.co
     ActiveTariffComponent,
     PriceListComponent,
     PurchaseHistoryComponent,
+    AppComponent,
+    ProductComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,

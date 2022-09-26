@@ -1,16 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthComponent } from './auth/auth.component';
+
+import { MaterialExampleModule } from 'src/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from "@angular/common/http";
+import { HomePageComponent } from './home-page/home-page.component';
+import { ActiveTariffComponent } from './shared/components/active-tariff/active-tariff.component';
+import { PriceListComponent } from './price-list/price-list.component';
+import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 import { ProductComponent } from './components/product/product.component';
 import {ProductsListComponent} from "./components/products-list/prooducts-list.component";
 
 @NgModule({
   declarations: [
+    AppComponent,
+    AuthComponent,
+    HomePageComponent,
+    ActiveTariffComponent,
+    PriceListComponent,
+    PurchaseHistoryComponent,
     AppComponent,
     ProductComponent,
     ProductsListComponent
@@ -18,9 +31,11 @@ import {ProductsListComponent} from "./components/products-list/prooducts-list.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule
+    MaterialExampleModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

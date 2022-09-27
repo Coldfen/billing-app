@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../shared/interfaces';
 import { AuthService } from '../shared/services/auth.service';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,23 +11,23 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class HomePageComponent implements OnInit {
 
-  user: User = {
-    auth: true,
-    login: 'test@mail.ru',
-    password: 'test1234'
-  }
-
+  login: string | null
+  
   constructor(
     private _authService: AuthService,
-    private _router: Router
-  ) { }
-
+    private _router: Router,
+    private _userService: UserService
+    ) { }
+    
+    
     logout() {
       this._authService.logout()
       this._router.navigate(['/auth'])
+      
     }
-
-  ngOnInit(): void {
+    
+    ngOnInit(): void {
+      this.login = this._userService.getCurrentUser()
   }
 
 }

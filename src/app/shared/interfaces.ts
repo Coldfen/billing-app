@@ -10,7 +10,7 @@ export interface ITarif {
 export interface User {
   login: string
   password: string
-  userId?: string
+  id?: string
   auth?: boolean
 }
 

@@ -9,19 +9,30 @@ import { environment } from 'src/environments/environment';
 })
 
 export class AuthService {
-  public error: Subject<string> = new Subject<string>()
+  private user: User
+  private res: any
+
+  // private res: ReplaySubject<User> =new  ReplaySubject<User>(1);
+  // public get user() {
+  //   return this.res.asObservable()
+  // }
+
 
   constructor( private _http: HttpClient ) {}
 
-
+  getUser() {
+    return this.res[0]
+  }
   
   login( user: User ): Observable<any> {
       return this._http.post(environment.DBUrl + "/login/user", user)
         .pipe(
-          tap(user => console.log(user)),
+          tap(responce => this.res = responce),
         )
   }
 
-    logout() {}
+    logout() {
+      localStorage.clear()
+    }
 
 }

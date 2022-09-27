@@ -22,7 +22,7 @@ export class AuthComponent {
     ]),
     password: new FormControl<string>('', [
       Validators.required,
-      Validators.minLength(6)
+      Validators.minLength(4)
     ])
   })
 
@@ -54,7 +54,7 @@ export class AuthComponent {
 
     this._submitted = true
     const user: User = {
-      email: this.email?.value,
+      login: this.email?.value,
       password: this.password?.value,
     }
 

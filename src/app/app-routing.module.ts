@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'home', component: HomePageComponent, children: [
     {path: 'price', component: ProductsListComponent},
     {path: 'history', component: PurchaseHistoryComponent}
-  ]}
+  ]},
+  {path: '', redirectTo: '/auth', pathMatch: 'full'},
 ];
 
 @NgModule({

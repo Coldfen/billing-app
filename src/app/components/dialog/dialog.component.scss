@@ -1,9 +1,13 @@
 .dialog {
-  &__top {
+  &__header_wrap {
     position: relative;
     background-color: #3f51b5;
     width: 100%;
     color: #fff;
+
+    & h1 {
+      margin-right: 30px;
+    }
   }
 
   &__close {
@@ -14,5 +18,9 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  &__title_wrap {
+    margin-bottom: 30px;
   }
 }

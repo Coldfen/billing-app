@@ -9,7 +9,7 @@ import {IProduct} from "../../models/product";
 })
 export class DialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: IProduct) {
-    console.log('dialogRef',data)
+    console.log('dialogRef', data)
   }
 
   buyProduct() {

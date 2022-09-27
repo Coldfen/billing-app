@@ -14,7 +14,6 @@ export class ProductComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    console.log('click btn', this)
     this.dialog.open(DialogComponent,  {
       width: '40%',
       enterAnimationDuration,

@@ -11,6 +11,6 @@ export interface User {
   email: string
   password: string
   userId?: string
-  auth: boolean
+  auth?: boolean
 }
 

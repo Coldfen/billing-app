@@ -6,7 +6,7 @@ import { Environment } from "./interface";
 
 export const environment: Environment = {
   production: false,
-  DBUrl: 'http://192.168.128.11:8000/api/v1'
+  DBUrl: 'api/v1'
 };
 
 /*

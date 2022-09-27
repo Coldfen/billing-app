@@ -8,7 +8,7 @@ export interface ITarif {
 }
 
 export interface User {
-  email: string
+  login: string
   password: string
   userId?: string
   auth?: boolean

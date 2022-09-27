@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
 
   user: User = {
     auth: true,
-    email: 'test@mail.ru',
+    login: 'test@mail.ru',
     password: 'test1234'
   }
 

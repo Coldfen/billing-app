@@ -8,7 +8,7 @@ export class DataService {
   constructor() { }
 
   getPrice() {
-
+    
   }
 
   getHistory() {
@@ -23,5 +23,5 @@ export class DataService {
 
   }
 
-  
+
  }

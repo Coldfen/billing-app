@@ -10,7 +10,7 @@ export class HomePageGuard implements CanActivate {
   constructor(private _authService: AuthService, private _router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | boolean | UrlTree {
-    if (!this._authService.isLoggedIn) {
+    if (!window.localStorage.getItem('login') && !window.localStorage.getItem('userId')) {
       return this._router.parseUrl('/auth');
     } else return true
 

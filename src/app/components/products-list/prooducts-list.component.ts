@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IProduct} from "../../models/product";
-import {products as data} from "../../data/products"
+import { DataService } from 'src/app/shared/services/data.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-products-list',
@@ -8,11 +9,21 @@ import {products as data} from "../../data/products"
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  products: IProduct[] = data
+  public products: IProduct[]
+  public error: HttpErrorResponse
 
-  constructor() { }
+  constructor(
+    private _dataService: DataService
+  ) { }
 
   ngOnInit(): void {
+    this._dataService.getPrice().subscribe(
+      (res) => {
+        this.products = res
+        console.log(this.products)
+      }, (e) => this.error = e
+        
+    )
   }
 
 }

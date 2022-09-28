@@ -12,11 +12,11 @@
     <tbody>
         <tr *ngFor="let tarif of tarifStory; let idx = index">
             <th>{{ idx + 1 }}</th>
-            <th>{{ tarif.creationDate }}</th>
-            <th>{{ tarif.tarifName }}</th>
+            <th>{{ tarif.buy_date | date: 'dd.MM.yyyy' }}</th>
+            <th>{{ tarif.title }}</th>
             <th>{{ tarif.price  }} <mat-icon class="history_rub">currency_ruble</mat-icon></th>
-            <th><span class="history_limit">{{ !!tarif.messageLimit ? tarif.messageLimit : "безлимитный" }} <mat-icon>sell</mat-icon></span></th>
-            <th>{{ "c " + tarif.dateStart + " по " + tarif.dateEnd}}</th>
+            <th><span class="history_limit">{{ !!tarif.message_limit ? tarif.message_limit : "безлимитный" }} <mat-icon>sell</mat-icon></span></th>
+            <th>c {{tarif.start_date | date: 'dd.MM.yyyy'}} по {{tarif.start_date | date: 'dd.MM.yyyy'}}</th>
         </tr>
     </tbody>
 </table>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TARIFSTORYMOCK } from '../data/taris-story';
 import { ITarif } from '../shared/interfaces';
+import { DataService } from '../shared/services/data.service';
 
 @Component({
   selector: 'app-purchase-history',
@@ -8,11 +8,21 @@ import { ITarif } from '../shared/interfaces';
   styleUrls: ['./purchase-history.component.scss']
 })
 export class PurchaseHistoryComponent implements OnInit {
-  tarifStory: ITarif[] = TARIFSTORYMOCK
+  tarifStory: ITarif[]
 
-  constructor() { }
+  constructor(
+    private _dataService: DataService
+  ) { }
+
 
   ngOnInit(): void {
+    this._dataService.getHistory().subscribe(
+      (res) => {
+         this.tarifStory = res
+         console.log(this.tarifStory)
+      }
+    )
+
   }
 
 }

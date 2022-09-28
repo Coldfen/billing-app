@@ -1,11 +1,15 @@
 export interface ITarif {
-	creationDate: string;
-	tarifName: string;
-	price: string;
-	messageLimit: number;
-	dateStart: string;
-	dateEnd: string;
+	buy_date: string
+	end_date: string
+	id: number
+	message_limit: number
+	period: number
+	price: number
+	start_date: string
+	title: string
+	user_id: number
 }
+
 
 export interface User {
   login: string
@@ -13,4 +17,13 @@ export interface User {
   id?: string
   auth?: boolean
 }
+
+export interface IProduct {
+	id: number,
+	title: string,
+	price: number,
+	period: number,
+	message_limit: number
+  }
+  
 

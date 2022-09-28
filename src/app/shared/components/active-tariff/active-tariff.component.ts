@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-active-tariff',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActiveTariffComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _dataService: DataService
+  ) { }
 
   ngOnInit(): void {
+    this._dataService.getActiveTariff().subscribe(
+      (res) => console.log(res) 
+    )
   }
 
 }

@@ -10,11 +10,11 @@ import { environment } from 'src/environments/environment';
 
 export class AuthService {
   public error: Subject<string> = new Subject<string>()
-
+  isLoggedIn = true
   constructor( private _http: HttpClient ) {}
 
 
-  
+
   login( user: User ): Observable<any> {
       return this._http.post(environment.DBUrl + "/login/user", user)
         .pipe(

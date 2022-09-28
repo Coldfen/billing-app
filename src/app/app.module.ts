@@ -37,7 +37,6 @@ import {DialogComponent} from "./components/dialog/dialog.component";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

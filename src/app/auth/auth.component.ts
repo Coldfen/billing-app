@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from "../shared/services/auth.service";
 import {User} from "../shared/interfaces";
 import { Router } from '@angular/router';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-auth',
@@ -28,7 +29,8 @@ export class AuthComponent {
 
   constructor(
     private _auth: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _userService: UserService
   ) {}
 
   get authForm(): FormGroup {
@@ -61,7 +63,8 @@ export class AuthComponent {
     this._auth.login(user).subscribe(() => {
       this._authForm.reset();
       this._router.navigate(['/home', 'price']);
-      this._submitted = false
+      this._submitted = false,
+      this._userService.setUser()
     },  () => {
       this.message = "неверный логин или пароль"
       this._submitted = false

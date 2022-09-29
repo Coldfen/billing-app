@@ -12,20 +12,19 @@ import { UserService } from '../shared/services/user.service';
 export class HomePageComponent implements OnInit {
 
   login: string | null
-  
+
   constructor(
     private _authService: AuthService,
     private _router: Router,
     private _userService: UserService
     ) { }
-    
-    
+
+
     logout() {
       this._authService.logout()
       this._router.navigate(['/auth'])
-      
     }
-    
+
     ngOnInit(): void {
       this.login = this._userService.getCurrentUser()
   }

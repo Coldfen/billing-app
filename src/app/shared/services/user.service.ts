@@ -6,10 +6,10 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
-   private _currentUser: User
-  constructor(
-    private _authService: AuthService
-  ) { }
+  private _currentUser: User
+
+  constructor(private _authService: AuthService) {
+  }
 
     setUser() {
       this._currentUser = this._authService.getUser()

@@ -22,7 +22,5 @@ export class PurchaseHistoryComponent implements OnInit {
          console.log(this.tarifStory)
       }
     )
-
   }
-
 }

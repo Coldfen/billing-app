@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from "../shared/services/auth.service";
 import {User} from "../shared/interfaces";
@@ -10,22 +10,12 @@ import { UserService } from '../shared/services/user.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
 
   private _submitted: boolean = false
   public result ?: Error | User
   public message: string
-
-  private _authForm: FormGroup = new FormGroup({
-    email: new FormControl<string>('', [
-      Validators.required,
-      Validators.email
-    ]),
-    password: new FormControl<string>('', [
-      Validators.required,
-      Validators.minLength(4)
-    ])
-  })
+  private _authForm!: FormGroup;
 
   constructor(
     private _auth: AuthService,
@@ -69,5 +59,22 @@ export class AuthComponent {
       this.message = "неверный логин или пароль"
       this._submitted = false
     })
+  }
+
+  ngOnInit(): void {
+    this._authForm = new FormGroup({
+      email: new FormControl<string>('', [
+        Validators.required,
+        Validators.email
+      ]),
+      password: new FormControl<string>('', [
+        Validators.required,
+        Validators.minLength(4)
+      ])
+    });
+
+    if (this._auth.isLoggedIn()) {
+      this._router.navigate(['home'])
+    }
   }
 }

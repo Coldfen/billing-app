@@ -15,6 +15,7 @@ import { PurchaseHistoryComponent } from './purchase-history/purchase-history.co
 import { ProductComponent } from './components/product/product.component';
 import {ProductsListComponent} from "./components/products-list/prooducts-list.component";
 import {DialogComponent} from "./components/dialog/dialog.component";
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {DialogComponent} from "./components/dialog/dialog.component";
     AppComponent,
     ProductComponent,
     ProductsListComponent,
-    DialogComponent
+    DialogComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

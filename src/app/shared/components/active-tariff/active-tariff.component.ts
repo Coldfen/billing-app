@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ITarif } from '../../interfaces';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -8,13 +9,36 @@ import { DataService } from '../../services/data.service';
 })
 export class ActiveTariffComponent implements OnInit {
 
+  activeTarif: ITarif;
+  statusString: string = 'Загрузка...';
+
   constructor(
     private _dataService: DataService
   ) { }
 
+  getStatus(): boolean {
+    const dateNow: Date = new Date()
+
+    if (dateNow < new Date(this.activeTarif.end_date)) {
+      return true
+    } else {
+      return false
+    }
+    
+  }
+
   ngOnInit(): void {
     this._dataService.getActiveTariff().subscribe(
-      (res) => console.log(res) 
+      (res) => {
+        this.activeTarif = res[0]
+        this.getStatus()
+      }, e => {
+          if (e.status === 404 ) {
+            this.statusString = "Отсутствует активный тариф"
+          } else {
+            this.statusString = "Ошибка при загрузке данных"
+          }
+      }
     )
   }
 

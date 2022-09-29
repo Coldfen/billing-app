@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IProduct} from "../../models/product";
 import { DataService } from 'src/app/shared/services/data.service';
-import { HttpErrorResponse } from '@angular/common/http';
-
-type Card = {
-  id: string,
-  title: string,
-  price: number,
-  period: Date,
-  message_limit: string
-};
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products-list',
@@ -18,7 +10,7 @@ type Card = {
 })
 export class ProductsListComponent implements OnInit {
   public products: IProduct[]
-  public error: HttpErrorResponse
+  public statusString: string = 'Загрузка...'
 
   constructor(
     private _dataService: DataService
@@ -28,10 +20,16 @@ export class ProductsListComponent implements OnInit {
     this._dataService.getPrice().subscribe(
       (res) => {
         this.products = res
-        console.log(this.products)
-      }, (e) => this.error = e
+      }, (e) => {
+        if(e.status === 404 ) {
+          this.statusString = 'Доступные тарифы отсутствуют'
+        } else {
+          this.statusString = 'Произошла ошибка, попробуйте позже'
+        }
+      }
         
-    )
+    ) 
+
   }
 
 }

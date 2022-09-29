@@ -11,3 +11,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 ul {
     list-style: none;
 }
+
+.status {
+    color: var(--style-color);
+    text-align: center;
+    padding-top: 20vh;
+  }

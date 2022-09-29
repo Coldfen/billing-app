@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ITarif } from '../interfaces';
+import { IProduct, ITarif } from '../interfaces';
 import { UserService } from './user.service'
 
 @Injectable({
@@ -15,8 +15,8 @@ export class DataService {
     private _userService: UserService
   ) { }
 
-  getPrice(): Observable<any> {
-    return this._http.get(environment.DBUrl + '/tariffs')
+  getPrice(): Observable<IProduct[]> {
+    return this._http.get<IProduct[]>(environment.DBUrl + '/tariffs')
   }
 
   getHistory(): Observable<ITarif[]> {
@@ -27,8 +27,8 @@ export class DataService {
 
   }
 
-  getActiveTariff() {
-    return this._http.get(environment.DBUrl + `/current_tariff/${Number(this._userService.getUserId())}`)
+  getActiveTariff(): Observable<ITarif[]>  {
+    return this._http.get<ITarif[]>(environment.DBUrl + `/current_tariff/${Number(this._userService.getUserId())}`)
   }
 
 

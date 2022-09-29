@@ -26,4 +26,8 @@ export interface IProduct {
 	message_limit: number
   }
   
-
+  export interface Registration {
+	email: string
+	username: string
+	password: string
+  }

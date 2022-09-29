@@ -13,7 +13,7 @@ import { UserService } from '../shared/services/user.service';
 export class AuthComponent {
 
   private _submitted: boolean = false
-  public result ?: Error | User
+  public result ?: User
   public message: string
 
   private _authForm: FormGroup = new FormGroup({

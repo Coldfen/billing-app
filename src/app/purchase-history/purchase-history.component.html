@@ -1,4 +1,4 @@
-<table>
+<table *ngIf="tarifStory; else status">
     <thead>
         <tr>
             <th>#</th>
@@ -20,3 +20,9 @@
         </tr>
     </tbody>
 </table>
+
+<ng-template #status>
+    <p class="status">
+        {{ statusString }}
+    </p>
+</ng-template>

@@ -1,7 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthResponse, User } from '../interfaces';
-import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
+import { AuthResponse, User, UserResponse } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ import { AuthService } from './auth.service';
 export class UserService {
    private _currentUserToken: AuthResponse
   constructor(
-    private _authService: AuthService
-  ) { }
+      private _http: HttpClient
+    ) { }
 
     setUser(res: any) {
       this._currentUserToken = res
@@ -21,8 +22,12 @@ export class UserService {
       return localStorage.getItem('token')
     }
 
-    getUserId() {
-      return localStorage.getItem('userId')
+    getUserInfo(): Observable<UserResponse[]> {
+      return this._http.get<UserResponse[]>(environment.APIUrl + '/user_info', {
+        headers: new HttpHeaders({
+          'Authorization': `Token ${this.getCurrentUserToken()}`
+        })
+      })
     }
 
 }

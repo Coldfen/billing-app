@@ -12,6 +12,6 @@ export class RegistrationService {
   constructor( private _http: HttpClient ) { }
 
   registration(data: Registration): Observable<Registration> {
-    return this._http.post<Registration>(environment.DBUrl + "/auth/users/", data)
+    return this._http.post<Registration>(environment.APIUrl + "/auth/users/", data)
   }
 }

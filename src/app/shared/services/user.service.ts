@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-import { User } from '../interfaces';
+import { Observable } from 'rxjs';
+import { AuthResponse, User } from '../interfaces';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-   private _currentUser: User
+   private _currentUserToken: AuthResponse
   constructor(
     private _authService: AuthService
   ) { }
 
-    setUser() {
-      this._currentUser = this._authService.getUser()
-      localStorage.setItem('login', this._currentUser.login)
-      localStorage.setItem('userId', this._currentUser.id || "")
+    setUser(res: any) {
+      this._currentUserToken = res
+      localStorage.setItem('token', this._currentUserToken.auth_token)
     }
 
-    getCurrentUser() {
-      return localStorage.getItem('login')
+    getCurrentUserToken() {
+      return localStorage.getItem('token')
     }
 
     getUserId() {

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -16,11 +16,15 @@ export class DataService {
   ) { }
 
   getPrice(): Observable<IProduct[]> {
-    return this._http.get<IProduct[]>(environment.DBUrl + '/tariffs')
+    return this._http.get<IProduct[]>(environment.APIUrl + '/tariffs', {
+      headers: new HttpHeaders({
+        'Authorization': `Token ${this._userService.getCurrentUserToken()}`
+      })
+    })
   }
 
   getHistory(): Observable<ITarif[]> {
-    return this._http.get<ITarif[]>(environment.DBUrl + `/order/${Number(this._userService.getUserId())}`)
+    return this._http.get<ITarif[]>(environment.APIUrl + `/order/${this._userService.getCurrentUserToken()}`)
   } 
 
   buyTariff() {
@@ -28,7 +32,7 @@ export class DataService {
   }
 
   getActiveTariff(): Observable<ITarif[]>  {
-    return this._http.get<ITarif[]>(environment.DBUrl + `/current_tariff/${Number(this._userService.getUserId())}`)
+    return this._http.get<ITarif[]>(environment.APIUrl + `/current_tariff/${this._userService.getCurrentUserToken()}`)
   }
 
 

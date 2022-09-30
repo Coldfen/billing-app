@@ -12,7 +12,7 @@ export interface ITarif {
 
 
 export interface User {
-  login: string
+  username: string
   password: string
   id?: string
   auth?: boolean
@@ -30,4 +30,8 @@ export interface IProduct {
 	email: string
 	username: string
 	password: string
+  }
+
+  export interface AuthResponse {
+	auth_token: "string"
   }

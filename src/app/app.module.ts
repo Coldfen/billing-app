@@ -16,6 +16,7 @@ import { ProductComponent } from './components/product/product.component';
 import {ProductsListComponent} from "./components/products-list/prooducts-list.component";
 import {DialogComponent} from "./components/dialog/dialog.component";
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { StatusComponent } from './shared/components/status/status.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegistrationPageComponent } from './registration-page/registration-page
     ProductComponent,
     ProductsListComponent,
     DialogComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

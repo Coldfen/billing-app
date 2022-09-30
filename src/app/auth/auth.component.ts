@@ -17,13 +17,12 @@ export class AuthComponent {
   public message: string
 
   private _authForm: FormGroup = new FormGroup({
-    email: new FormControl<string>('', [
-      Validators.required,
-      Validators.email
+    login: new FormControl<string>('', [
+      Validators.required
     ]),
     password: new FormControl<string>('', [
       Validators.required,
-      Validators.minLength(4)
+      Validators.minLength(8)
     ])
   })
 
@@ -37,8 +36,8 @@ export class AuthComponent {
     return this._authForm
   }
 
-  get email() {
-    return this._authForm.get('email')
+  get login() {
+    return this._authForm.get('login')
   }
 
   get password() {
@@ -56,16 +55,20 @@ export class AuthComponent {
 
     this._submitted = true
     const user: User = {
-      login: this.email?.value,
+      username: this.login?.value,
       password: this.password?.value,
     }
 
-    this._auth.login(user).subscribe(() => {
+    console.log(user)
+
+    this._auth.login(user).subscribe((res) => {
+      console.log(res)
       this._authForm.reset();
       this._router.navigate(['/home', 'price']);
       this._submitted = false,
-      this._userService.setUser()
-    },  () => {
+      this._userService.setUser(res)
+    },  (e) => {
+      console.log(e)
       this.message = "неверный логин или пароль"
       this._submitted = false
     })

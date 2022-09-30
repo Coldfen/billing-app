@@ -11,7 +11,6 @@ import { UserService } from '../shared/services/user.service';
 })
 export class HomePageComponent implements OnInit {
 
-  login: string | null
   
   constructor(
     private _authService: AuthService,
@@ -27,7 +26,6 @@ export class HomePageComponent implements OnInit {
     }
     
     ngOnInit(): void {
-      this.login = this._userService.getCurrentUser()
   }
 
 }

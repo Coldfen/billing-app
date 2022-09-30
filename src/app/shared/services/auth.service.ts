@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 
 export class AuthService {
-  private user: User
   private res: any
 
   // private res: ReplaySubject<User> =new  ReplaySubject<User>(1);
@@ -24,11 +23,8 @@ export class AuthService {
     return this.res[0]
   }
   
-  login( user: User ): Observable<any> {
-      return this._http.post(environment.DBUrl + "/login/user", user)
-        .pipe(
-          tap(responce => this.res = responce),
-        )
+  login( user: User ): Observable<User> {
+      return this._http.post<User>("api/auth/token/login/", user)
   }
 
     logout() {

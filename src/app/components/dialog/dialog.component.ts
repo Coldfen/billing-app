@@ -29,12 +29,15 @@ export class DialogComponent implements OnInit {
       tariff_id: this.data.id
     }
 
+    this._alert
+
     this._dataService.buyTariff(order).subscribe(
       () => {
-        console.log(this.data)
         this._alert.success(`Вы успешно купили тариф  ${this.data.title}`)
       }, 
-      e => this._alert.warning('Произошла ошибка при покупке тарифа')
+      e => {
+        console.log(this._alert.warning('Произошла ошибка при покупке тарифа'))
+      }
     )
     this.dialogRef.close()
 

@@ -1,6 +1,7 @@
 <section class="current-product" *ngIf="activeTarif; else status">
-  <h2 class="current-product__title">Мой тариф</h2>
-  <mat-card>
+  <!--<h2 class="current-product__title">Мой тариф</h2>-->
+  <div class="current-product__wrapper">
+  <mat-card >
     <mat-card-subtitle>Текущий тариф</mat-card-subtitle>
     <mat-card-title>
       <mat-icon
@@ -39,7 +40,8 @@
         </p>
       </div>
     </mat-card-content>
-  </mat-card>
+    </mat-card>
+</div> 
 </section>
 
 

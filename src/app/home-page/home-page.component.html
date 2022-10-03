@@ -16,8 +16,11 @@
   </div>
 
 </nav>
-<app-active-tariff></app-active-tariff>
-<app-status></app-status>
+<h2 class="product__title">Мой тариф</h2>
+<div [ngStyle]="{display: 'flex', flexWrap: 'wrap'}">
+  <app-active-tariff [ngStyle]="{flexGrow: '1', margin: '0 5px 0 10px'}"></app-active-tariff>
+  <app-status [ngStyle]="{flexGrow: '1',  margin: '0 10px 0 5px'}"></app-status>
+</div>
 <router-outlet></router-outlet>
 <app-alert></app-alert>
 

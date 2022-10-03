@@ -8,9 +8,9 @@
     </li>
   </ul>
   <div class="navbar__menu-right">
-    <div class="menu-righ__account">
+    <div class="menu-righ__account" *ngIf="user; else loading">
       <mat-icon>account_circle</mat-icon>
-      <p>motskUser</p>
+      <p>{{ user.username }}</p>
     </div>
     <mat-icon (click)="logout()">logout</mat-icon>
   </div>
@@ -19,3 +19,11 @@
 <app-active-tariff></app-active-tariff>
 <app-status></app-status>
 <router-outlet></router-outlet>
+<app-alert></app-alert>
+
+<ng-template #loading>
+  <div class="menu-righ__account">
+    <mat-icon>account_circle</mat-icon>
+    <p>Ща загрузим</p>
+  </div>
+</ng-template>

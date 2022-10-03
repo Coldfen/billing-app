@@ -59,8 +59,6 @@ export class AuthComponent {
       password: this.password?.value,
     }
 
-    console.log(user)
-
     this._auth.login(user).subscribe((res) => {
       console.log(res)
       this._authForm.reset();

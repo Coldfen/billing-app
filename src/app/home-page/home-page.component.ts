@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../shared/interfaces';
+import { UserResponse } from '../shared/interfaces';
 import { AuthService } from '../shared/services/auth.service';
 import { UserService } from '../shared/services/user.service';
 
@@ -11,7 +11,8 @@ import { UserService } from '../shared/services/user.service';
 })
 export class HomePageComponent implements OnInit {
 
-  
+  public user: UserResponse
+
   constructor(
     private _authService: AuthService,
     private _router: Router,
@@ -20,12 +21,19 @@ export class HomePageComponent implements OnInit {
     
     
     logout() {
-      this._authService.logout()
-      this._router.navigate(['/auth'])
+      this._authService.logout().subscribe(res => {
+        this._router.navigate(['/auth'])
+        localStorage.clear()
+      })
       
     }
     
     ngOnInit(): void {
+      this._userService.getUserInfo().subscribe((res) => {
+        this.user = res[0]
+      }, 
+        e => console.log(e)
+      )
   }
 
 }

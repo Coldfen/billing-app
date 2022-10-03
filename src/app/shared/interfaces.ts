@@ -14,8 +14,6 @@ export interface ITarif {
 export interface User {
   username: string
   password: string
-  id?: string
-  auth?: boolean
 }
 
 export interface IProduct {
@@ -34,4 +32,15 @@ export interface IProduct {
 
   export interface AuthResponse {
 	auth_token: "string"
+  }
+
+  export interface UserResponse {
+	user_id: number
+	username: string
+	personal_account?: string
+  }
+
+  export interface OrderRequest {
+	user_id: number
+	tariff_id: number
   }

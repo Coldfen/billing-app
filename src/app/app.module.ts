@@ -16,6 +16,7 @@ import { ProductComponent } from './components/product/product.component';
 import {ProductsListComponent} from "./components/products-list/prooducts-list.component";
 import {DialogComponent} from "./components/dialog/dialog.component";
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
 import { StatusComponent } from './shared/components/status/status.component';
 
 @NgModule({
@@ -30,6 +31,7 @@ import { StatusComponent } from './shared/components/status/status.component';
     ProductsListComponent,
     DialogComponent,
     RegistrationPageComponent,
+    AlertComponent,
     StatusComponent
   ],
   imports: [

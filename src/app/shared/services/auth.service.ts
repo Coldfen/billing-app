@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {catchError, Observable, Subject, tap, throwError} from "rxjs";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {User} from "../interfaces";
 import { environment } from 'src/environments/environment';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,10 @@ export class AuthService {
   // }
 
 
-  constructor( private _http: HttpClient ) {}
+  constructor( 
+    private _http: HttpClient,
+    private _userService: UserService
+    ) {}
 
   getUser() {
     return this.res[0]
@@ -28,7 +32,11 @@ export class AuthService {
   }
 
     logout() {
-      localStorage.clear()
+      return this._http.post("api/auth/token/logout/", {}, {
+        headers: new HttpHeaders({
+          'Authorization': `Token ${this._userService.getCurrentUserToken()}`
+        })
+      })
     }
 
 }

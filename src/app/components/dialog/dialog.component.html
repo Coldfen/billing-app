@@ -7,7 +7,7 @@
 </div>
 <div mat-dialog-content>
   <p>Тип: {{data.title}}</p>
-  <p>Количество отправок: {{data.message_limit}}</p>
+  <p>Количество отправок: {{data.message_limit === 0 ? 'Безлимитный' : data.message_limit}}</p>
   <p>Период действия: {{data.period}} месяцев</p>
   <p>Стоимость: {{data.price}}</p>
 </div>

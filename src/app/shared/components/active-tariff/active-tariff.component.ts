@@ -33,7 +33,6 @@ export class ActiveTariffComponent implements OnInit {
       this._dataService.getActiveTariff().subscribe(
         (res) => {
           this.activeTarif = res
-          console.log(this.activeTarif)
           this.getStatus()
         }, e => {
             if (e.status === 404 ) {

@@ -3,5 +3,5 @@ export interface IProduct {
   title: string,
   price: number,
   period: number,
-  message_limit: number
+  message_limit?: number
 }

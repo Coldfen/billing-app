@@ -35,7 +35,7 @@ export interface IProduct {
   }
 
   export interface UserResponse {
-	user_id: number
+	id: number
 	username: string
 	personal_account?: string
   }

@@ -25,18 +25,16 @@ export class DialogComponent implements OnInit {
 
   buyProduct() {
     const order: OrderRequest = {
-      user_id: this._user.user_id,
+      user_id: this._user.id,
       tariff_id: this.data.id
     }
-
-    this._alert
 
     this._dataService.buyTariff(order).subscribe(
       () => {
         this._alert.success(`Вы успешно купили тариф  ${this.data.title}`)
       }, 
       e => {
-        console.log(this._alert.warning('Произошла ошибка при покупке тарифа'))
+        this._alert.warning('Произошла ошибка при покупке тарифа')
       }
     )
     this.dialogRef.close()
@@ -46,7 +44,7 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
     this._userService.getUserInfo().subscribe(res => {
-      this._user = res[0]
+      this._user = res
     }, e => console.log(e)
     
     )

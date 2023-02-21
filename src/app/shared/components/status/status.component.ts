@@ -20,7 +20,6 @@ export class StatusComponent implements OnInit {
   ngOnInit(): void {
     this._dataService.getHistory().subscribe(
       res => {
-        console.log(res);
         this.lastOrderTitle = res[res.length - 1].title
         this.lastOrderDate = res[res.length - 1].buy_date
         this.ordersCount = res.length

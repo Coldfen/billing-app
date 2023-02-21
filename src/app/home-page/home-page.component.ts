@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
     
     ngOnInit(): void {
       this._userService.getUserInfo().subscribe((res) => {
-        this.user = res[0]
+        this.user = res
       }, 
         e => console.log(e)
       )

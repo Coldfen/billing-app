@@ -6,7 +6,8 @@
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prestart": "cp scripts/pre-push .git/hooks/ && chmod +x .git/hooks/pre-push && echo 'hook copied'"
   },
   "private": true,
   "dependencies": {

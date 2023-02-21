@@ -22,8 +22,8 @@ export class UserService {
       return localStorage.getItem('token')
     }
 
-    getUserInfo(): Observable<UserResponse[]> {
-      return this._http.get<UserResponse[]>(environment.APIUrl + '/user_info', {
+    getUserInfo(): Observable<UserResponse> {
+      return this._http.get<UserResponse>(environment.APIUrl + '/user_info', {
         headers: new HttpHeaders({
           'Authorization': `Token ${this.getCurrentUserToken()}`
         })
